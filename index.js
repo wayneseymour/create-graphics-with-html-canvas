@@ -6,8 +6,9 @@ context.fillStyle = 'pink'
 context.fillRect(0, 0, canvas.width, canvas.height)
 
 const getCoords = event => {
-  const x = event.clientX;
-  const y = event.clientY;
+  const container = canvas.getBoundingClientRect();
+  const x = (event.clientX - container.left) - container.width / 2;
+  const y = (event.clientY - container.top) - container.height / 2;
 
   coords.textContent = `${x}, ${y}`
 }
