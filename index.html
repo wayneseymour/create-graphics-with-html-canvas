@@ -3,28 +3,13 @@
 
 <head>
   <link rel="stylesheet" href="style.css"/>
-  <style>
-    canvas {
-      width: 500px;
-      height: 500px;
-    }
-  </style>
 </head>
 
 <body>
 <h1>Drawing Shapes in HTML Canvas</h1>
 <canvas id="canvas"></canvas>
 
-<script>
-  var canvas = document.querySelector('#canvas');
-  canvas.width = canvas.height = 500;
-
-  var context = canvas.getContext('2d');
-  // context.fillStyle = 'rgb(255, 192, 203)'; // rgb
-  // context.fillStyle = 'rgba(255, 192, 203, 1)'; // rgba
-  context.fillStyle = '#ffc0cb'; // hex
-  context.fillRect(0, 0, canvas.width, canvas.height);
-</script>
+<script src="index.js"></script>
 </body>
 
 </html>
