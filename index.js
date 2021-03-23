@@ -1,34 +1,16 @@
-var context = document.querySelector('#canvas').getContext('2d');
-// context.arc(centerX, centerY, radius, startAngle, endAngle, isAntiClockwise);
-// 1 radian = 57.2957795 degrees
-// radians = (Math.PI / 180) * degrees;
+const canvas = document.querySelector('#canvas');
+const context = canvas.getContext('2d');
+const coords = document.querySelector('.display-coords')
 
-context.beginPath();
-context.moveTo(100, 70); // move to this spot
-context.lineTo(100, 20); // draw vertical line
-context.arcTo(150, 20, 150, 70, 50)
-context.lineTo(100, 70) // draw a horizontal line
-context.fill()
-context.closePath();
+context.fillStyle = 'pink'
+context.fillRect(0, 0, canvas.width, canvas.height)
 
+const getCoords = event => {
+  const container = canvas.getBoundingClientRect();
+  const x = (event.clientX - container.left) - container.width / 2;
+  const y = (event.clientY - container.top) - container.height / 2;
 
+  coords.textContent = `${x}, ${y}`
+}
 
-// let i = 0
-// const loop = () => {
-//   if (i++ < Math.PI * 2) {
-//     drawPurpleCircle(i)
-//   } else {
-//     i = 0;
-//     context.clearRect(0, 0, 500, 500)
-//     setTimeout(loop, 400)
-//   }
-// }
-// loop()
-// function drawPurpleCircle(x) {
-//   context.beginPath();
-//   context.arc(100, 70, 50, 0, x)
-//   context.fillStyle = 'rebeccaPurple'
-//   context.fill()
-//   context.closePath()
-//   setTimeout(loop, 400)
-// }
+canvas.addEventListener('click', getCoords)
